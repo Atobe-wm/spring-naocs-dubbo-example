@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	   xmlns:dubbo="http://code.alibabatech.com/schema/dubbo"
+	   xsi:schemaLocation="http://www.springframework.org/schema/beans
+    http://www.springframework.org/schema/beans/spring-beans.xsd
+    http://code.alibabatech.com/schema/dubbo
+    http://code.alibabatech.com/schema/dubbo/dubbo.xsd">
+
+	<dubbo:application name="${dubbo.application.name}" />
+
+	<dubbo:registry address="${dubbo.registry.address}" />
+
+	<dubbo:provider timeout="60000" retries="2" delay="-1"/>
+
+	<!-- 生成远程服务代理，可以和本地bean一样使用 -->
+	<!--<dubbo:reference id="deviceInvokeService" interface="com.yuantu.web.DeviceInvokeService"/>-->
+
+	<!-- 扫描注解包路径，多个包用逗号分隔，不填package表示扫描当前ApplicationContext中的所有类 -->
+	<!--<dubbo:annotation package="com.yuantu.controller"></dubbo:annotation>-->
+
+	<dubbo:consumer check="false" timeout="60000"/>
+
+</beans>

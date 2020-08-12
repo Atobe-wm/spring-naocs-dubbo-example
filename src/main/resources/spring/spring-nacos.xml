@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:nacos="http://nacos.io/schema/nacos"
+	   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	   xsi:schemaLocation="http://nacos.io/schema/nacos http://nacos.io/schema/nacos.xsd
+http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<!--开启注解-->
+	<nacos:annotation-driven></nacos:annotation-driven>
+	<!--指定nacos配置地址-->
+	<nacos:global-properties server-addr="127.0.0.1:8848" namespace="dev"/>
+	<!--指定dataId,group-id, 是否是自动刷新-->
+	<nacos:property-source data-id="ytmonitor_config.properties" auto-refreshed="true"/>
+</beans>
