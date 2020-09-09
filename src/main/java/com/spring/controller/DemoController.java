@@ -26,6 +26,7 @@ public class DemoController {
     @RequestMapping("test")
     public String test() {
         System.out.println(configHelperDemo.getEnv());
+        System.out.println(configHelperDemo.getEnvironment());
         return deviceInvokeService.test();
     }
 

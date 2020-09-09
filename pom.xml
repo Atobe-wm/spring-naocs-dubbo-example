@@ -295,5 +295,48 @@
                 </plugin>
             </plugins>
         </pluginManagement>
+
+        <filters>
+            <filter>${basedir}/properties/${runtime.path}/${runtime.name}.properties</filter>
+        </filters>
+        <resources>
+            <resource>
+                <directory>src/main/resources</directory>
+                <filtering>true</filtering>
+            </resource>
+        </resources>
+        <testResources>
+            <testResource>
+                <filtering>true</filtering>
+                <directory>src/test/resources</directory>
+            </testResource>
+        </testResources>
     </build>
+
+    <profiles>
+        <profile>
+            <id>dev</id>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+            <properties>
+                <runtime.path></runtime.path>
+                <runtime.name>dev</runtime.name>
+            </properties>
+        </profile>
+        <profile>
+            <id>uat</id>
+            <properties>
+                <runtime.path></runtime.path>
+                <runtime.name>uat</runtime.name>
+            </properties>
+        </profile>
+        <profile>
+            <id>prod</id>
+            <properties>
+                <runtime.path></runtime.path>
+                <runtime.name>prod</runtime.name>
+            </properties>
+        </profile>
+    </profiles>
 </project>
